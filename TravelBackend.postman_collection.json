@@ -1,0 +1,370 @@
+{
+	"info": {
+		"_postman_id": "011cc702-774a-48b2-a266-a797ed3b1415",
+		"name": "TravelBackend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25424262"
+	},
+	"item": [
+		{
+			"name": "Signup user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"John Doe\",\r\n    \"email\": \"sp1@example.com\",\r\n    \"password\": \"password123\",\r\n    \"location\": \"New York\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/users/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"users",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzNiMWFiMDI0Mzg4YjNjZmIzNzIxMmIiLCJpYXQiOjE3MzE5MjY3MDR9.HLf6T5gqdoehzeTO9TRH5770ihil5efI3ArzRptPl2U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"sp1@example.com\",\r\n    \"password\": \"password123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a card",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzNiMjg4NzBiZTg0MGMxNzU5OTZjMmEiLCJpYXQiOjE3MzE5MzE4MTIsImV4cCI6MTczMjUzNjYxMn0.ONAxWm-GNNpA7ltGJI4oLVXn0FNG_VAjnVp6lKRynLw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"My First Card\",\r\n    \"description\": \"This is a test card\",\r\n    \"image\": \"https://example.com/image.jpg\",\r\n    \"date\": \"2024-03-19\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/cards",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"cards"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User Details",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzNiMTZmNjVlMTJkMGM4NTdjOWZlNzciLCJpYXQiOjE3MzE5MjU4MTd9.Oar2Pai2Nlbu7tAIspCgyhl67rJakF8JrxXZoCBtFJ0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"john@example.com\",\r\n    \"password\": \"password123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/users/:userId",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users",
+						":userId"
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "673b16f65e12d0c857c9fe77"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Card By Card Id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzNiMjg4NzBiZTg0MGMxNzU5OTZjMmEiLCJpYXQiOjE3MzE5MzE4MTIsImV4cCI6MTczMjUzNjYxMn0.ONAxWm-GNNpA7ltGJI4oLVXn0FNG_VAjnVp6lKRynLw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"john@example.com\",\r\n    \"password\": \"password123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/cards/:cardId",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"cards",
+						":cardId"
+					],
+					"variable": [
+						{
+							"key": "cardId",
+							"value": "673b32d00be840c175996ce9"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User Saved Cards",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzNiMjg4NzBiZTg0MGMxNzU5OTZjMmEiLCJpYXQiOjE3MzE5MzE4MTIsImV4cCI6MTczMjUzNjYxMn0.ONAxWm-GNNpA7ltGJI4oLVXn0FNG_VAjnVp6lKRynLw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/cards/user/:userId",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"cards",
+						"user",
+						":userId"
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "673b28870be840c175996c2a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update card by userID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzNiMWFiMDI0Mzg4YjNjZmIzNzIxMmIiLCJpYXQiOjE3MzE5Mjc2Mzd9.tt1IbiBuwUinQtaXN3vHCIwPkkN7GSioTELYuBbqwDw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "heeee",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "ssssss",
+							"type": "text"
+						},
+						{
+							"key": "date",
+							"value": "2024-5-48",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/C:/Users/PRINCE SP/Downloads/div (4).png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/cards/:cardId",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"cards",
+						":cardId"
+					],
+					"variable": [
+						{
+							"key": "cardId",
+							"value": "673b1ab024388b3cfb37212b"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update card by userID Copy",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzNiMTZmNjVlMTJkMGM4NTdjOWZlNzciLCJpYXQiOjE3MzE5MjU4MTd9.Oar2Pai2Nlbu7tAIspCgyhl67rJakF8JrxXZoCBtFJ0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Updated Card Title\",\r\n    \"description\": \"Updated description\",\r\n    \"image\": \"https://example.com/new-image.jpg\",\r\n    \"date\": \"2024-03-20\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/cards/:cardId",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"cards",
+						":cardId"
+					],
+					"variable": [
+						{
+							"key": "cardId",
+							"value": "673b17e65e12d0c857c9fe80"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
