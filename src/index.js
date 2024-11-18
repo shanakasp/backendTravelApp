@@ -185,7 +185,9 @@ app.post("/api/users/signup", async (req, res) => {
     });
 
     await user.save();
-    const token = jwt.sign({ _id: user._id }, "your_jwt_secret");
+    const token = jwt.sign({ _id: user._id }, "your_jwt_secret", {
+      expiresIn: "7d",
+    });
 
     res.status(201).json({
       message: "User created successfully",
@@ -212,7 +214,9 @@ app.post("/api/users/login", async (req, res) => {
       return res.status(401).json({ error: "Invalid credentials" });
     }
 
-    const token = jwt.sign({ _id: user._id }, "your_jwt_secret");
+    const token = jwt.sign({ _id: user._id }, "your_jwt_secret", {
+      expiresIn: "7d",
+    });
 
     res.json({
       message: "Login successful",
@@ -355,7 +359,7 @@ app.delete("/api/cards/:cardId", auth, async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
