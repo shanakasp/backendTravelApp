@@ -332,6 +332,24 @@ app.put(
   }
 );
 
+// Get card by card ID
+app.get("/api/cards/:cardId", auth, async (req, res) => {
+  try {
+    const card = await Card.findOne({
+      _id: req.params.cardId,
+      userId: req.user._id,
+    });
+
+    if (!card) {
+      return res.status(404).json({ error: "Card not found" });
+    }
+
+    res.json(card);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 // Delete card
 app.delete("/api/cards/:cardId", auth, async (req, res) => {
   try {
